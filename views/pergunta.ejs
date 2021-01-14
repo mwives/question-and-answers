@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <%- include('partials/important-head-tags.ejs') %>
+
+        <title>Responder | P&R</title>
+</head>
+
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+        <div class="container">
+
+            <div class="card">
+                <div class="card-header">
+                    <h1> <%= questions.title %> </h1>
+                </div>
+
+                <div class="card-body">
+                    <p> <%= questions.body %> </p>
+                </div>
+            </div>
+
+            <h2>Respostas</h2>
+
+            <% answers.forEach(answers => { %>
+                <div class="card">
+                    <div class="card-body">
+                        <p><%= answers.answerBody %></p>
+                    </div>
+                </div>
+            <% }) %>
+
+            <div class="card">
+                <form method="POST" action="/saveanswer">
+                    <div class="card-body">
+                        <label class="form-label" for="answerBody">
+                            <h2>Responder</h2>
+                        </label>
+                        <textarea class="form-control" name="answerBody" id="answerBody" required oninvalid="this.setCustomValidity('Digite sua resposta.')"
+                        onchange="try{setCustomValidity('')}catch(e){}"></textarea>
+
+                        <input type="hidden" name="questionId" value="<%= questions.id %>">
+
+                        <button class="btn btn-success" type="submit">Enviar</button>
+                    </div>
+                </form>                
+            </div>
+
+        </div>
+
+        <%- include('partials/bootstrap-scripts.ejs') %>
+</body>
+
+</html>

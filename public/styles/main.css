@@ -1,0 +1,29 @@
+body {
+    background-color: #ebebeb;
+}
+
+h1 {
+    text-align: center;
+    margin: .8rem;
+}
+
+h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.card {
+    margin: 2rem;
+}
+
+.card p {
+    margin: 0;
+}
+
+.card label:nth-child(n + 2) {
+    margin-top: .8rem;
+}
+
+.card .btn {
+    margin-top: .8rem;
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <%- include('partials/important-head-tags.ejs') %>
+
+        <title>Perguntar | P&R</title>
+</head>
+
+<body>
+    <%- include('partials/navbar.ejs') %>
+
+        <div class="container">
+            <h1>Fazer pergunta</h1>
+
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="/savequestion">
+                        <label class="form-label" for="questionTitle">Título da pergunta</label>
+                        <input class="form-control" id="questionTitle" type="text" name="questionTitle" id="questionTitle"
+                            required oninvalid="this.setCustomValidity('O título é obrigatório.')"
+                            onchange="try{setCustomValidity('')}catch(e){}">
+
+                        <label class="form-label" for="questionBody">Desenvolva sua pergunta</label>
+                        <textarea class="form-control" id="questionBody" type="text" name="questionBody" 
+                            required oninvalid="this.setCustomValidity('A descrição é obrigatória.')"
+                            onchange="try{setCustomValidity('')}catch(e){}"></textarea>
+
+                        <button class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <%- include('partials/bootstrap-scripts.ejs') %>
+</body>
+
+</html>
